@@ -21,7 +21,7 @@ PUBLIC_INTERFACE=eth1
 FLOATING_RANGE=192.168.55.224/27
 
 # Avoid spamming /opt/stack
-#DESTDIR=$HOME/src/openstack
+DEST=/vagrant/src/openstack
 
 # Keep data directory separate from /opt/stack due to sharing
 DATA_DIR=/opt/data
