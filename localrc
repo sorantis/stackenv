@@ -1,0 +1,80 @@
+#Credentials
+ADMIN_PASSWORD=devstack
+MYSQL_PASSWORD=devstack
+RABBIT_PASSWORD=devstack
+SERVICE_PASSWORD=devstack
+SERVICE_TOKEN=devstack
+ 
+# Reclone each time
+#RECLONE=yes
+#OFFLINE=True
+ 
+#Swift Requirements
+#SWIFT_REPLICAS=1
+#SWIFT_HASH=011688b44136573e209e
+ 
+# Network configuration
+HOST_IP=192.168.55.10
+HOST_IP_IFACE=eth1
+FLAT_INTERFACE=br100
+PUBLIC_INTERFACE=eth1
+FLOATING_RANGE=192.168.55.224/27
+ 
+#Log Output
+LOGFILE=/opt/stack/logs/stack.sh.log
+VERBOSE=True
+LOG_COLOR=True
+SCREEN_LOGDIR=/opt/stack/logs
+ 
+# Keep data directory separate from /opt/stack due to sharing
+DATA_DIR=/opt/data
+ 
+#Stable Branches
+NOVA_BRANCH=stable/havana
+CINDER_BRANCH=stable/havana
+GLANCE_BRANCH=stable/havana
+HORIZON_BRANCH=stable/havana
+KEYSTONE_BRANCH=stable/havana
+NEUTRON_BRANCH=stable/havana
+SWIFT_BRANCH=stable/havana
+HEAT_BRANCH=stable/havana
+CEILOMETER_BRANCH=stable/havana
+ 
+# Horizon (master branch)
+ENABLED_SERVICES+=,horizon
+#HORIZON_REPO=https://github.com/openstack/horizon
+#HORIZON_BRANCH=master
+ 
+# Heat (master branch)
+HEAT_REPO=https://github.com/openstack/heat.git
+HEAT_BRANCH=master
+ 
+#Enabled services
+##Neutron
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service q-l3
+enable_service q-meta
+enable_service neutron
+ 
+# Disable Cinder as it not needed
+disable_service cinder
+disable_service c-api
+disable_service c-sch
+disable_service c-vol
+ 
+##Swift
+#enable_service s-proxy s-object s-container s-account
+ 
+ 
+##Heat
+ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng
+#IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2"
+#IMAGE_URLS+=",https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img"
+ 
+##Ceilometer
+#CEILOMETER_BACKEND=mongo
+ENABLED_SERVICES+=,ceilometer-acompute,ceilometer-acentral,ceilometer-collector,ceilometer-api
+ENABLED_SERVICES+=,ceilometer-alarm-notify,ceilometer-alarm-eva
