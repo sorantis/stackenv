@@ -19,5 +19,5 @@ config.vm.network :forwarded_port, guest: 80, host: 8080
 config.vm.network :private_network, ip: "192.168.55.10"
 
 # /opt/stack is synced with vagrant project dir over NFS
-config.vm.synced_folder ".", "/opt/stack", :owner=> 'vagrant', :group=>'vagrant', :mount_options => ['dmode=775', 'fmode=775']
+config.vm.synced_folder ".", "/opt/stack", :owner=> 'vagrant', :group=>'vagrant', :mount_options => ['dmode=777', 'fmode=777']
 end
