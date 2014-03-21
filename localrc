@@ -21,16 +21,16 @@ PUBLIC_INTERFACE=eth1
 FLOATING_RANGE=192.168.55.224/27
 
 # Avoid spamming /opt/stack
-DEST=/vagrant/src/openstack
+#DEST=/vagrant/src/openstack
 
 # Keep data directory separate from /opt/stack due to sharing
-DATA_DIR=/opt/data
+#DATA_DIR=/opt/data
  
 #Log Output
-LOGFILE=/opt/data/logs/stack.sh.log
+LOGFILE=/opt/stack/logs/stack.sh.log
 VERBOSE=True
 LOG_COLOR=True
-SCREEN_LOGDIR=/opt/data/logs
+SCREEN_LOGDIR=/opt/stack/logs
  
 
  
