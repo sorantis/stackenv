@@ -16,9 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
-  #config.proxy.http  = "http://www-proxy.ericsson.se:8080"
-  #config.proxy.https = "http://www-proxy.ericsson.se:8080"
- 
+
   # Forward port for Horizon
   config.vm.network :forwarded_port, guest: 80, host: 8080
 
