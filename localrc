@@ -32,8 +32,6 @@ VERBOSE=True
 LOG_COLOR=True
 #SCREEN_LOGDIR=/opt/stack/logs
 
-
-
 #Stable Branches
 NOVA_BRANCH=2014.1.b3
 CINDER_BRANCH=2014.1.b3
@@ -43,7 +41,7 @@ KEYSTONE_BRANCH=2014.1.b3
 NEUTRON_BRANCH=2014.1.b3
 SWIFT_BRANCH=2014.1.b3
 HEAT_BRANCH=2014.1.b3
-#CEILOMETER_BRANCH=2014.1.b3
+CEILOMETER_BRANCH=master
 
 # Horizon (master branch)
 ENABLED_SERVICES+=,horizon
@@ -52,9 +50,13 @@ HORIZON_BRANCH=master
 
 # Heat (master branch)
 HEAT_REPO=https://github.com/openstack/heat.git
-#HEAT_BRANCH=master
+HEAT_BRANCH=master
 
 #Enabled services
+enable_service rabbit
+enable_service mysql
+enable_service key
+
 ##Neutron
 disable_service n-net
 enable_service q-svc
@@ -73,17 +75,12 @@ disable_service c-vol
 ##Swift
 #enable_service s-proxy s-object s-container s-account
 
-
 ##Heat
 ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng
 #IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2"
 #IMAGE_URLS+=",https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img"
 
 ##Ceilometer
-#CEILOMETER_BACKEND=mongo
-# Enable the ceilometer metering services
-#enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector
-# Enable the ceilometer alarming services
-#enable_service ceilometer-alarm-evaluator,ceilometer-alarm-notifier
-# Enable the ceilometer api services
-#enable_service ceilometer-api
+CEILOMETER_BACKEND=mysql
+enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector ceilometer-api
+enable_service ceilometer-alarm-notifier ceilometer-alarm-evaluator
