@@ -4,15 +4,15 @@ MYSQL_PASSWORD=devstack
 RABBIT_PASSWORD=devstack
 SERVICE_PASSWORD=devstack
 SERVICE_TOKEN=devstack
- 
+
 # Reclone each time
 #RECLONE=yes
 #OFFLINE=True
- 
+
 #Swift Requirements
 #SWIFT_REPLICAS=1
 #SWIFT_HASH=011688b44136573e209e
- 
+
 # Network configuration
 HOST_IP=192.168.55.10
 HOST_IP_IFACE=eth1
@@ -25,35 +25,35 @@ FLOATING_RANGE=192.168.55.224/27
 
 # Keep data directory separate from /opt/stack due to sharing
 DATA_DIR=/opt/data
- 
+
 #Log Output
 LOGFILE=stack.sh.log
 VERBOSE=True
 LOG_COLOR=True
 #SCREEN_LOGDIR=/opt/stack/logs
- 
 
- 
+
+
 #Stable Branches
-NOVA_BRANCH=stable/havana
-CINDER_BRANCH=stable/havana
-GLANCE_BRANCH=stable/havana
-HORIZON_BRANCH=stable/havana
-KEYSTONE_BRANCH=stable/havana
-NEUTRON_BRANCH=stable/havana
-SWIFT_BRANCH=stable/havana
-HEAT_BRANCH=stable/havana
-CEILOMETER_BRANCH=stable/havana
- 
+NOVA_BRANCH=2014.1.b3
+CINDER_BRANCH=2014.1.b3
+GLANCE_BRANCH=2014.1.b3
+#HORIZON_BRANCH=2014.1.b3
+KEYSTONE_BRANCH=2014.1.b3
+NEUTRON_BRANCH=2014.1.b3
+SWIFT_BRANCH=2014.1.b3
+HEAT_BRANCH=2014.1.b3
+#CEILOMETER_BRANCH=2014.1.b3
+
 # Horizon (master branch)
 ENABLED_SERVICES+=,horizon
-#HORIZON_REPO=https://github.com/openstack/horizon
-#HORIZON_BRANCH=master
- 
+HORIZON_REPO=https://github.com/openstack/horizon
+HORIZON_BRANCH=master
+
 # Heat (master branch)
 HEAT_REPO=https://github.com/openstack/heat.git
-HEAT_BRANCH=master
- 
+#HEAT_BRANCH=master
+
 #Enabled services
 ##Neutron
 disable_service n-net
@@ -63,23 +63,27 @@ enable_service q-dhcp
 enable_service q-l3
 enable_service q-meta
 enable_service neutron
- 
+
 # Disable Cinder as it not needed
 disable_service cinder
 disable_service c-api
 disable_service c-sch
 disable_service c-vol
- 
+
 ##Swift
 #enable_service s-proxy s-object s-container s-account
- 
- 
+
+
 ##Heat
 ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng
 #IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2"
 #IMAGE_URLS+=",https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img"
- 
+
 ##Ceilometer
 #CEILOMETER_BACKEND=mongo
-ENABLED_SERVICES+=,ceilometer-acompute,ceilometer-acentral,ceilometer-collector,ceilometer-api
-ENABLED_SERVICES+=,ceilometer-alarm-notify,ceilometer-alarm-eva
+# Enable the ceilometer metering services
+#enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector
+# Enable the ceilometer alarming services
+#enable_service ceilometer-alarm-evaluator,ceilometer-alarm-notifier
+# Enable the ceilometer api services
+#enable_service ceilometer-api
