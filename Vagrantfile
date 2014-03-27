@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 $script = <<SCRIPT
 # download required packages
-sudo apt-get update && sudo apt-get -y install git vim-gtk libxml2-dev libxslt1-dev libpq-dev python-pip libsqlite3-dev && sudo apt-get -y build-dep python-mysqldb && sudo pip install git-review tox && git clone git://git.openstack.org/openstack-dev/devstack -b stable/havana && chown -R vagrant:vagrant devstack && cd devstack
+sudo apt-get update && sudo apt-get -y install git vim-gtk libxml2-dev libxslt1-dev libpq-dev python-pip libsqlite3-dev && sudo apt-get -y build-dep python-mysqldb && sudo pip install git-review tox && git clone git://git.openstack.org/openstack-dev/devstack -b master && chown -R vagrant:vagrant devstack && cd devstack
 SCRIPT
 
 ## Vagrant config
