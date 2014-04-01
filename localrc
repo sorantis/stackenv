@@ -33,24 +33,24 @@ LOG_COLOR=True
 #SCREEN_LOGDIR=/opt/stack/logs
 
 #Stable Branches
-NOVA_BRANCH=2014.1.b3
-CINDER_BRANCH=2014.1.b3
+NOVA_BRANCH=milestone-proposed
+CINDER_BRANCH=milestone-proposed
 GLANCE_BRANCH=2014.1.b3
-#HORIZON_BRANCH=2014.1.b3
-KEYSTONE_BRANCH=2014.1.b3
+HORIZON_BRANCH=milestone-proposed
+KEYSTONE_BRANCH=milestone-proposed
 NEUTRON_BRANCH=2014.1.b3
-SWIFT_BRANCH=2014.1.b3
-HEAT_BRANCH=2014.1.b3
-CEILOMETER_BRANCH=master
+SWIFT_BRANCH=milestone-proposed
+HEAT_BRANCH=milestone-proposed
+CEILOMETER_BRANCH=milestone-proposed
 
 # Horizon (master branch)
 ENABLED_SERVICES+=,horizon
 HORIZON_REPO=https://github.com/openstack/horizon
-HORIZON_BRANCH=master
+#HORIZON_BRANCH=master
 
 # Heat (master branch)
 HEAT_REPO=https://github.com/openstack/heat.git
-HEAT_BRANCH=master
+#HEAT_BRANCH=master
 
 #Enabled services
 enable_service rabbit
