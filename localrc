@@ -33,15 +33,15 @@ LOG_COLOR=True
 #SCREEN_LOGDIR=/opt/stack/logs
 
 #Stable Branches
-NOVA_BRANCH=milestone-proposed
-CINDER_BRANCH=milestone-proposed
-GLANCE_BRANCH=2014.1.rc2
-HORIZON_BRANCH=milestone-proposed
-KEYSTONE_BRANCH=2014.1.rc2
-NEUTRON_BRANCH=2014.1.rc2
-SWIFT_BRANCH=milestone-proposed
-HEAT_BRANCH=milestone-proposed
-CEILOMETER_BRANCH=milestone-proposed
+NOVA_BRANCH=stable/icehouse
+CINDER_BRANCH=stable/icehouse
+GLANCE_BRANCH=stable/icehouse
+HORIZON_BRANCH=stable/icehouse
+KEYSTONE_BRANCH=stable/icehouse
+NEUTRON_BRANCH=stable/icehouse
+SWIFT_BRANCH=stable/icehouse
+HEAT_BRANCH=stable/icehouse
+CEILOMETER_BRANCH=stable/icehouse
 
 # Horizon (master branch)
 ENABLED_SERVICES+=,horizon
