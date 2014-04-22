@@ -46,11 +46,11 @@ CEILOMETER_BRANCH=milestone-proposed
 # Horizon (master branch)
 ENABLED_SERVICES+=,horizon
 HORIZON_REPO=https://github.com/openstack/horizon
-#HORIZON_BRANCH=master
+HORIZON_BRANCH=master
 
 # Heat (master branch)
 HEAT_REPO=https://github.com/openstack/heat.git
-#HEAT_BRANCH=master
+HEAT_BRANCH=master
 
 #Enabled services
 enable_service rabbit
